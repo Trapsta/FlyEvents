@@ -1,8 +1,5 @@
 /**
- * app.js
- *
- * This is the entry file for the application, only setup and boilerplate
- * code.
+ * app entry point
  */
 
 // Needed for redux-saga es6 generator support
@@ -33,6 +30,13 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+// Import Theme Provider and theme
+import { ThemeProvider } from 'styled-components';
+import lightTheme from './themes/light';
+
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
@@ -43,7 +47,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <ThemeProvider theme={lightTheme}>
+            <App />
+          </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
