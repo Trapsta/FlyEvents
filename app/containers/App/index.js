@@ -15,14 +15,28 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
+import 'rheostat/css/rheostat.css';
+import 'react-dates/lib/css/_datepicker.css';
+
+import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
+import cssInterface from 'react-with-styles-interface-css';
+import RheostatDefaultTheme from 'rheostat/lib/themes/DefaultTheme';
+import ReactDatesDefaultTheme from 'react-dates/lib/theme/DefaultTheme';
+
+ThemedStyleSheet.registerInterface(cssInterface);
+ThemedStyleSheet.registerTheme({
+	...RheostatDefaultTheme,
+	...ReactDatesDefaultTheme,
+});
+
 export default function App() {
-  return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </div>
-  );
+	return (
+		<div>
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route component={NotFoundPage} />
+			</Switch>
+			<GlobalStyle />
+		</div>
+	);
 }
