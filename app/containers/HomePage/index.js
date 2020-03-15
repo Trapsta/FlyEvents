@@ -21,7 +21,7 @@ export default function HomePage() {
 	};
 	return (
 		<HomePageWrapper>
-			<NavigationBar />
+			<NavigationBar home />
 			<Header />
 
 			<section className={CSS.UpcomingEvents}>
@@ -61,9 +61,7 @@ export default function HomePage() {
 					</Row>
 
 					<div className={CSS.AllEventsBtn}>
-						<RoundedButton className={CSS.SearchButton} type="submit">
-							View all events
-						</RoundedButton>
+						<RoundedButton type="submit">View all events</RoundedButton>
 					</div>
 				</PageContentBlock>
 			</section>

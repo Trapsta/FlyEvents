@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
 	Collapse,
 	Navbar,
@@ -20,27 +20,35 @@ import {
 	NavbarText,
 } from 'reactstrap';
 import styled from 'styled-components';
+import { useScrollPosition } from '../../utils/hooks';
 
-function NavigationBar() {
+function NavigationBar({ home = false }) {
 	const CSS = {
 		BrandLogo: 'brand-logo',
 	};
 	const [isOpen, setIsOpen] = useState(false);
 
-	const [scrollHeight, setScrollHeight] = useState(0);
+	const [scrollHeight, setScrollHeight] = useState(491);
 
 	const toggle = () => setIsOpen(!isOpen);
 
-	useEffect(() => {
-		setScrollHeight(window.scrollY);
-	}, [scrollHeight]);
+	// use custom hook to listen to scroll events and set viewport scroll position
+	useScrollPosition(
+		({ prevPos, currPos }) => {
+			setScrollHeight(currPos.y);
+		},
+		[scrollHeight],
+		null,
+		true,
+		300,
+	);
 
 	return (
 		<NavBarWrapper>
 			<Navbar
-				color={scrollHeight > 490 ? 'light' : 'dark'}
-				light={scrollHeight > 490}
-				dark={scrollHeight < 490}
+				color={!home ? 'light' : scrollHeight > 211 ? 'light' : 'dark'}
+				light={!home ? true : scrollHeight > 211}
+				dark={!home ? false : scrollHeight < 211}
 				expand="md"
 				fixed="top"
 			>
@@ -82,10 +90,19 @@ NavigationBar.propTypes = {};
 export default NavigationBar;
 
 const NavBarWrapper = styled.div`
+	.bg-dark {
+		background-color: transparent !important;
+		box-shadow: none;
+	}
 	.brand-logo {
 		font-weight: 700;
 		span {
 			color: #7848f4;
 		}
+	}
+	.navbar-light {
+		-webkit-box-shadow: 0 8px 6px -6px #999;
+		-moz-box-shadow: 0 8px 6px -6px #999;
+		box-shadow: 0 8px 6px -6px #999;
 	}
 `;

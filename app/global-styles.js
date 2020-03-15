@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   button, button:focus {
     outline: none !important;
-    -webkit-appearance: none;
+    -webkit-appearance: none !important;
   }
 `;
 
