@@ -21,14 +21,16 @@ import {
 } from 'reactstrap';
 import styled from 'styled-components';
 import { useScrollPosition } from '../../utils/hooks';
+import { Link } from 'react-router-dom';
 
 function NavigationBar({ home = false }) {
 	const CSS = {
 		BrandLogo: 'brand-logo',
+		NavLink: 'nav-link',
 	};
 	const [isOpen, setIsOpen] = useState(false);
 
-	const [scrollHeight, setScrollHeight] = useState(491);
+	const [scrollHeight, setScrollHeight] = useState(0);
 
 	const toggle = () => setIsOpen(!isOpen);
 
@@ -73,10 +75,14 @@ function NavigationBar({ home = false }) {
 					</form>
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<NavLink href="/components/">Events</NavLink>
+							<Link className={CSS.NavLink} to="/events">
+								Events
+							</Link>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/components/">Create Event</NavLink>
+							<Link className={CSS.NavLink} to="/create-event">
+								Create Event
+							</Link>
 						</NavItem>
 					</Nav>
 				</Collapse>

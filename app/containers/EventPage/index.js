@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -13,7 +13,6 @@ import styled from 'styled-components';
 import classnames from 'classnames';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import saga from './saga';
 
 import NavigationBar from '../../components/NavigationBar';
 import SectionTitle from '../../components/SectionTitle';
@@ -46,8 +45,28 @@ import {
 import EventComment from '../../components/EventComment';
 import CounterControl from '../../components/CounterControl';
 import { useScrollPosition } from '../../utils/hooks';
+import { loadEvents } from '../App/actions';
+import saga from '../HomePage/saga';
+import {
+  makeSelectEvents,
+  makeSelectLoading,
+  makeSelectError,
+} from 'containers/App/selectors';
+import { createStructuredSelector } from 'reselect';
+import injectSaga from 'utils/injectSaga';
+import moment from 'moment';
+import { injectIntl } from 'react-intl';
 
-export function EventPage() {
+const key = 'eventPage';
+
+export function EventPage({
+  loading,
+  error,
+  events,
+  fetchEvents,
+  match,
+  intl,
+}) {
   const [scrollHeight, setScrollHeight] = useState(491);
   const [fixedTicketsBar, setFixedTicketsBar] = useState(false);
   const [fixedTicketsBarPos, setFixedTicketsBarPos] = useState(0);
@@ -56,12 +75,18 @@ export function EventPage() {
 
   const [ticketsState, setTicketsState] = useState(1);
   const [ratingsState, setRatingsState] = useState(0);
+  const [commentsState, setCommentsState] = useState(false);
 
   const TicketsRef = useRef(null);
   const RecommendRef = useRef(null);
 
   const rateEvent = rating => {
     setRatingsState(rating);
+  };
+
+  const showComments = () => {
+    console.log('show all');
+    setCommentsState(!commentsState);
   };
 
   const addTickets = () => {
@@ -116,6 +141,16 @@ export function EventPage() {
     50,
   );
 
+  useEffect(() => {
+    if (events === undefined || events === false) {
+      fetchEvents();
+    }
+  }, []);
+
+  const event = events.data
+    ? events.data.find(el => el.slug === match.params.slug)
+    : undefined;
+
   const CSS = {
     EventPageContainer: 'event-page-container',
     EventTickets: 'events-ticket-info',
@@ -142,7 +177,6 @@ export function EventPage() {
     PriceSummary: 'price-summary',
     EventShareBlock: 'events-share-block',
   };
-  useInjectSaga({ key: 'eventPage', saga });
 
   return (
     <EventPageWrapper>
@@ -152,259 +186,276 @@ export function EventPage() {
       </Helmet>
       <NavigationBar />
 
-      {isLoading && <LoadingDots />}
+      {loading && <LoadingDots />}
 
-      <section className={CSS.EventPageContainer}>
-        <PageContentBlock>
-          <div className={CSS.EventTickets}>
-            <div
-              className={classnames(CSS.EventTicketsContainer, {
-                [CSS.EventTicketsContainerFixed]: fixedTicketsBar,
-              })}
-              style={{
-                top: fixedTicketsBar ? '0' : `${fixedTicketsBarPos}px`,
-              }}
-            >
-              <span className={CSS.EditEvent}>
-                Edit this event? <EditIcon width="18" height="18" />
-              </span>
-              <div className={CSS.EventBookingBlock} ref={TicketsRef}>
-                <div className={CSS.EventBooking}>
-                  <div className={CSS.EventBookingHeader}>
-                    <div className={CSS.EventTitle}>
-                      <div className={CSS.EventName}>
-                        Nairobi Whiskey Festival
-                      </div>
-                      <div className={CSS.EventMeta}>
-                        submitted <span> 3 days ago </span> by{' '}
-                        <span> Jasper </span>
-                      </div>
-                    </div>
-                    <div className={CSS.EventOrganizer}>
-                      <div className={CSS.EventOrganizerAvatar}>J</div>
-                    </div>
-                  </div>
-                  <div className={CSS.RateEvent}>
-                    <label>Rate this Event:</label>
-                    {ratingsState < 1 ? (
-                      <div>
-                        <StarIconLine
-                          width={15}
-                          height={15}
-                          onClick={() => {
-                            rateEvent(1);
-                          }}
-                        />
-                        <StarIconLine
-                          width={15}
-                          height={15}
-                          onClick={() => {
-                            rateEvent(2);
-                          }}
-                        />
-                        <StarIconLine
-                          width={15}
-                          height={15}
-                          onClick={() => {
-                            rateEvent(3);
-                          }}
-                        />
-                        <StarIconLine
-                          width={15}
-                          height={15}
-                          onClick={() => {
-                            rateEvent(4);
-                          }}
-                        />
-                        <StarIconLine
-                          width={15}
-                          height={15}
-                          onClick={() => {
-                            rateEvent(5);
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      <StarRating
-                        rating={ratingsState}
-                        height={15}
-                        width={15}
-                      />
-                    )}
-                  </div>
-                  <div className={CSS.BasicEventInfo}>
-                    <div className={CSS.EventInfoDetail}>
-                      <label>Date:</label>
-                      Sat, 21st March, 2020
-                    </div>
-                    <div className={CSS.EventInfoDetail}>
-                      <label>Time:</label>
-                      6:00 pm - 9:00 pm (EAT)
-                    </div>
-                    <div className={CSS.EventInfoDetail}>
-                      <label>Venue:</label>
-                      Blue Door, Westlands
-                    </div>
-                  </div>
-
-                  <div className={CSS.EventTicketQty}>
-                    <label>Tickets:</label>
-                    <div className={CSS.SelectTickets}>
-                      <CounterControl
-                        value={ticketsState}
-                        minValue={1}
-                        maxValue={10}
-                        onIncrease={addTickets}
-                        onDecrease={removeTickets}
-                      >
-                        Kes. 2,000 per ticket
-                      </CounterControl>
-
-                      <div className={CSS.PriceSummary}>
-                        <div>
-                          <label>Vat:</label> 320
+      {event && (
+        <section className={CSS.EventPageContainer}>
+          <PageContentBlock>
+            <div className={CSS.EventTickets}>
+              <div
+                className={classnames(CSS.EventTicketsContainer, {
+                  [CSS.EventTicketsContainerFixed]: fixedTicketsBar,
+                })}
+                style={{
+                  top: fixedTicketsBar ? '0' : `${fixedTicketsBarPos}px`,
+                }}
+              >
+                <span className={CSS.EditEvent}>
+                  Edit this event? <EditIcon width="18" height="18" />
+                </span>
+                <div className={CSS.EventBookingBlock} ref={TicketsRef}>
+                  <div className={CSS.EventBooking}>
+                    <div className={CSS.EventBookingHeader}>
+                      <div className={CSS.EventTitle}>
+                        <div className={CSS.EventName}>{event.name}</div>
+                        <div className={CSS.EventMeta}>
+                          submitted <span> {event.created_date} </span> by{' '}
+                          <span> {event.organizer} </span>
                         </div>
-                        <div>
-                          <label>Total:</label> 2,320.00
+                      </div>
+                      <div className={CSS.EventOrganizer}>
+                        <div className={CSS.EventOrganizerAvatar}>
+                          {event.organizer.charAt(0)}{' '}
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={CSS.CenterBtn}>
-                    <RoundedButton type="submit">Get tickets</RoundedButton>
-                  </div>
-                  <div className={CSS.EventAttendees}>
-                    who is attending? <GroupIcon />
+                    <div className={CSS.RateEvent}>
+                      <label>Rate this Event:</label>
+                      {ratingsState < 1 ? (
+                        <div>
+                          <StarIconLine
+                            width={15}
+                            height={15}
+                            onClick={() => {
+                              rateEvent(1);
+                            }}
+                          />
+                          <StarIconLine
+                            width={15}
+                            height={15}
+                            onClick={() => {
+                              rateEvent(2);
+                            }}
+                          />
+                          <StarIconLine
+                            width={15}
+                            height={15}
+                            onClick={() => {
+                              rateEvent(3);
+                            }}
+                          />
+                          <StarIconLine
+                            width={15}
+                            height={15}
+                            onClick={() => {
+                              rateEvent(4);
+                            }}
+                          />
+                          <StarIconLine
+                            width={15}
+                            height={15}
+                            onClick={() => {
+                              rateEvent(5);
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        <StarRating
+                          rating={ratingsState}
+                          height={15}
+                          width={15}
+                        />
+                      )}
+                    </div>
+                    <div className={CSS.BasicEventInfo}>
+                      <div className={CSS.EventInfoDetail}>
+                        <label>Date:</label>
+                        {moment(event.event_dates[0], 'DD-MM-YYYY').format(
+                          'ddd, MMMM Do YYYY',
+                        )}
+                      </div>
+                      <div className={CSS.EventInfoDetail}>
+                        <label>Time:</label>
+                        {event.event_times[0]} - {event.event_times[1]} (EAT)
+                      </div>
+                      <div className={CSS.EventInfoDetail}>
+                        <label>Venue:</label>
+                        {event.venue}, {event.location}
+                      </div>
+                    </div>
+
+                    <div className={CSS.EventTicketQty}>
+                      <label>Tickets:</label>
+                      <div className={CSS.SelectTickets}>
+                        <CounterControl
+                          value={ticketsState}
+                          minValue={1}
+                          maxValue={10}
+                          onIncrease={addTickets}
+                          onDecrease={removeTickets}
+                        >
+                          {event.ticket_price !== 0
+                            ? `${intl.formatNumber(event.ticket_price, {
+                                style: 'currency',
+                                currency: 'Kes',
+                              })} per ticket`
+                            : 'FREE'}
+                        </CounterControl>
+
+                        {event.ticket_price !== 0 && (
+                          <div className={CSS.PriceSummary}>
+                            <div>
+                              <label>Vat:</label>{' '}
+                              {intl.formatNumber(
+                                (event.ticket_price * ticketsState) / 16,
+                                { style: 'currency', currency: 'Kes' },
+                              )}
+                            </div>
+                            <div>
+                              <label>Total:</label>{' '}
+                              {intl.formatNumber(
+                                event.ticket_price * ticketsState +
+                                  (event.ticket_price * ticketsState) / 16,
+                                { style: 'currency', currency: 'Kes' },
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className={CSS.CenterBtn}>
+                      <RoundedButton type="submit">
+                        Get {ticketsState > 1 && ticketsState} tickets
+                      </RoundedButton>
+                    </div>
+                    <div className={CSS.EventAttendees}>
+                      {event.attending.length} are attending <GroupIcon />
+                    </div>
                   </div>
                 </div>
+
+                <div className={CSS.EventShareBlock}>
+                  <FbIcon width={22} height={22} />
+                  <MessengerIcon width={22} height={22} />
+                  <InstagramIcon width={22} height={22} />
+                  <WhatsappIcon width={22} height={22} />
+                  <TwitterIcon width={22} height={22} />
+                  <CopyIcon width={22} height={22} />
+                  <WeChatIcon width={22} height={22} />
+                  <SmsIcon width={22} height={22} />
+                </div>
               </div>
-
-              <div className={CSS.EventShareBlock}>
-                <FbIcon width={22} height={22} />
-                <MessengerIcon width={22} height={22} />
-                <InstagramIcon width={22} height={22} />
-                <WhatsappIcon width={22} height={22} />
-                <TwitterIcon width={22} height={22} />
-                <CopyIcon width={22} height={22} />
-                <WeChatIcon width={22} height={22} />
-                <SmsIcon width={22} height={22} />
-              </div>
             </div>
-          </div>
-        </PageContentBlock>
-
-        <PageContentBlock>
-          <div className={CSS.EventBlock}>
-            <SectionTitle topSpacing bottomSpacing>
-              Nairobi Whiskey Festival
-            </SectionTitle>
-            <EventCarousel />
-            <div className={CSS.EventActions}>
-              <EventBreadCrumbs
-                title={'Nairobi Whiskey Festival'}
-                location={'Westlands'}
-                page={'Events'}
-              />
-              <span
-                className={classnames(CSS.EventWishlist, {
-                  [CSS.EventActive]: inWishlist,
-                })}
-                onClick={toggleWishlist}
-              >
-                {inWishlist ? (
-                  <>
-                    - Wishlist <HeartFilled />
-                  </>
-                ) : (
-                  <>
-                    + Wishlist <HeartOpen />
-                  </>
-                )}
-              </span>
-            </div>
-
-            <SectionTitle topSpacing bottomSpacing>
-              Event Description
-            </SectionTitle>
-            <EventContentBlock
-              text={`Nairobi Whiskey Festival® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!
-
-
-
-
-
-Our mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!
-
-
-
-
-
-The Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.
-
-
-
-
-
-Spend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.
-
-
-
-
-
-For more information call +254 715 849 520`}
-            />
-
-            <SectionTitle topSpacing bottomSpacing>
-              Event Venue
-            </SectionTitle>
-            <div className={CSS.EventVenue}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske"
-                width="600"
-                height="450"
-                frameBorder="0"
-                style={{ border: 0, width: '100%', borderRadius: '10px' }}
-                allowFullScreen=""
-                aria-hidden="false"
-                tabIndex="0"
-              />
-            </div>
-
-            <SectionTitle topSpacing bottomSpacing>
-              Event Comments
-            </SectionTitle>
-            <EventComment />
-            <EventComment reply />
-            <EventComment />
-            <EventComment />
-            <EventComment reply />
-
-            <div className={CSS.CenterBtn}>
-              <RoundedButton type="submit">View all Comments</RoundedButton>
-            </div>
-          </div>
-        </PageContentBlock>
-
-        <div ref={RecommendRef}>
-          <PageContentBlock>
-            <SectionTitle topSpacing bottomSpacing>
-              Recommended Events
-            </SectionTitle>
-
-            <Row>
-              <Col xs="12" sm="4">
-                <EventCard />
-              </Col>
-              <Col xs="12" sm="4">
-                <EventCard />
-              </Col>
-              <Col xs="12" sm="4">
-                <EventCard />
-              </Col>
-            </Row>
           </PageContentBlock>
-        </div>
-      </section>
+
+          <PageContentBlock>
+            <div className={CSS.EventBlock}>
+              <SectionTitle topSpacing bottomSpacing>
+                {event.name}
+              </SectionTitle>
+              <EventCarousel images={event.images} />
+              <div className={CSS.EventActions}>
+                <EventBreadCrumbs
+                  title={event.name}
+                  location={event.location}
+                  page={'Events'}
+                />
+                <span
+                  className={classnames(CSS.EventWishlist, {
+                    [CSS.EventActive]: inWishlist,
+                  })}
+                  onClick={toggleWishlist}
+                >
+                  {inWishlist ? (
+                    <>
+                      - Wishlist <HeartFilled />
+                    </>
+                  ) : (
+                    <>
+                      + Wishlist <HeartOpen />
+                    </>
+                  )}
+                </span>
+              </div>
+
+              <SectionTitle topSpacing bottomSpacing>
+                Event Description
+              </SectionTitle>
+              <EventContentBlock text={`${event.name} ${event.about}`} />
+
+              <SectionTitle topSpacing bottomSpacing>
+                Event Venue
+              </SectionTitle>
+              <div className={CSS.EventVenue}>
+                <iframe
+                  src={event.location_map}
+                  width="600"
+                  height="450"
+                  frameBorder="0"
+                  style={{ border: 0, width: '100%', borderRadius: '10px' }}
+                  allowFullScreen=""
+                  aria-hidden="false"
+                  tabIndex="0"
+                />
+              </div>
+
+              <SectionTitle topSpacing bottomSpacing>
+                Event Comments
+              </SectionTitle>
+
+              {event.comments.map((comment, i) => {
+                if (!commentsState && i < 4) {
+                  return (
+                    <EventComment
+                      key={i}
+                      comment={comment}
+                      reply={comment.reply}
+                    />
+                  );
+                }
+
+                if (commentsState && i) {
+                  return (
+                    <EventComment
+                      key={i}
+                      comment={comment}
+                      reply={comment.reply}
+                    />
+                  );
+                }
+              })}
+
+              <div className={CSS.CenterBtn}>
+                <RoundedButton onClick={showComments}>
+                  {commentsState ? 'Hide more comments' : 'View all Comments'}
+                </RoundedButton>
+              </div>
+            </div>
+          </PageContentBlock>
+
+          <div ref={RecommendRef}>
+            <PageContentBlock>
+              <SectionTitle topSpacing bottomSpacing>
+                Recommended Events
+              </SectionTitle>
+
+              <Row>
+                {events.data
+                  .filter(el => el.id !== event.id)
+                  .map((event, i) => {
+                    if (i < 3) {
+                      return (
+                        <Col xs="12" sm="4" key={event.id}>
+                          <EventCard event={event} />
+                        </Col>
+                      );
+                    }
+                  })}
+              </Row>
+            </PageContentBlock>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </EventPageWrapper>
@@ -412,21 +463,37 @@ For more information call +254 715 849 520`}
 }
 
 EventPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  events: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  fetchEvents: PropTypes.func,
 };
 
-function mapDispatchToProps(dispatch) {
+const mapStateToProps = createStructuredSelector({
+  events: makeSelectEvents(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
+});
+
+export function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    fetchEvents: () => {
+      dispatch(loadEvents());
+    },
   };
 }
 
 const withConnect = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(EventPage);
+const withSaga = injectSaga({ key: 'eventPage', saga });
+
+export default compose(
+  withSaga,
+  withConnect,
+)(injectIntl(EventPage));
 
 const EventPageWrapper = styled.div`
   .event-page-container {
@@ -591,8 +658,19 @@ const EventPageWrapper = styled.div`
       margin: 0;
     }
   }
+  .carousel-item{
+    width: 100%; /*width you want*/
+    height: 500px; /*height you want*/
+    overflow: hidden;
+}
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
   .carousel .carousel-item img {
     border-radius: 10px;
+    width: 100%;
   }
   .event-actions {
     width: 100%

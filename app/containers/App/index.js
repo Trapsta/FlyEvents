@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import EventPage from 'containers/EventPage/Loadable';
+import EventFormPage from 'containers/EventFormPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
@@ -35,7 +36,8 @@ export default function App() {
 		<div>
 			<Switch>
 				<Route exact path="/" component={HomePage} />
-				<Route exact path="/event" component={EventPage} />
+				<Route exact path="/events/:slug" component={EventPage} />
+				<Route exact path="/create-event" component={EventFormPage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 			<GlobalStyle />

@@ -11,14 +11,23 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { ChevronIcon, SearchIcon, CalendarIcon, MarkerIcon } from '../Icons';
 import RoundedButton from '../RoundedButton';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import moment from 'moment';
 
 function SearchBlock() {
 	const [popupVisible, setPopupVisible] = useState(false);
-	const [dateFrom, setDateFrom] = useState('');
-	const [dateTo, setDateTo] = useState('');
+	const [startDate, setStartDate] = useState(moment());
+	const [endDate, setEndDate] = useState(moment());
+	const [focusedInput, setFocusedInput] = useState(null);
 
-	const togglePopup = () => {
-		setPopupVisible(!popupVisible);
+	const onDateChange = ({ startDate, endDate }) => {
+		setStartDate(startDate);
+		setEndDate(endDate);
+	};
+
+	const onFocusChange = focusedInput => {
+		setFocusedInput(focusedInput);
 	};
 
 	const CSS = {
@@ -70,37 +79,16 @@ function SearchBlock() {
 				</div>
 				<div className={CSS.SearchBlockSecondRow}>
 					<div className={CSS.DateInput}>
-						<button type="button" className={CSS.Button} onClick={togglePopup}>
-							<div className={CSS.ButtonContent}>
-								<div className={CSS.IconContainer}>
-									<CalendarIcon
-										className={CSS.AgendaIcon}
-										width={21}
-										height={21}
-									/>
-								</div>
-								<span className={CSS.LabelText}>
-									{dateFrom && dateTo ? `${dateFrom} - ${dateTo}` : `Date`}
-								</span>
-								<div className={CSS.IconContainer}>
-									<ChevronIcon
-										direction="bottom"
-										width={15}
-										height={9}
-										className={classnames(CSS.ChevronIcon, {
-											[CSS.ChevronIconRotated]: popupVisible,
-										})}
-									/>
-								</div>
-							</div>
-						</button>
-						{popupVisible && (
-							<div>
-								{
-									'CalendardPopup initialDateFrom={dateFrom} initialDateTo={dateTo} onClose={togglePopup} />'
-								}
-							</div>
-						)}
+						<DateRangePicker
+							startDate={startDate}
+							startDateId="startDate"
+							endDate={endDate}
+							endDateId="endDate"
+							onDatesChange={onDateChange}
+							focusedInput={focusedInput}
+							onFocusChange={onFocusChange}
+							withPortal
+						/>
 					</div>
 				</div>
 				<RoundedButton className={CSS.SearchButton} type="submit">
@@ -167,13 +155,13 @@ const StyledSearchBlock = styled.div`
 	}
 	@media (min-width: 992px) {
 		.search-block-button {
-			width: 200px;
+			width: 100px;
 			height: auto;
 		}
 	}
 	@media (min-width: 1200px) {
 		.search-block-button {
-			width: 232px;
+			width: 132px;
 		}
 	}
 	.search-block-date {
@@ -182,7 +170,7 @@ const StyledSearchBlock = styled.div`
 	@media (min-width: 992px) {
 		.search-block-date {
 			min-width: 200px;
-			max-width: 235px;
+			max-width: initial;
 			margin-left: 0;
 		}
 	}
@@ -251,9 +239,20 @@ const StyledSearchBlock = styled.div`
 		background: white;
 		font-size: 1rem;
 	}
+	.DateRangePicker {
+		border: 1px solid #808080;
+		border-radius: 2px;
+		height: 3rem;
+		font-weight: 500;
+		font-size: 1rem;
+	}
+	.DateRangePickerInput__withBorder {
+		border: none;
+		padding-top: 0.6rem;
+	}
 	@media (min-width: 992px) {
-		.search-input {
-			line-height: 4rem;
+		.search-input,
+		.DateRangePicker {
 			height: 4rem;
 		}
 	}
@@ -301,13 +300,13 @@ const StyledSearchBlock = styled.div`
 		.date-input {
 			margin-right: 1rem;
 			min-width: 200px;
-			max-width: 235px;
+			width: auto;
 			margin-bottom: 0;
 		}
 	}
 	@media (min-width: 1200px) {
 		.date-input {
-			max-width: 235px;
+			width: auto;
 			margin-right: 1rem;
 		}
 	}

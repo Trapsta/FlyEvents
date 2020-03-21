@@ -30,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
     outline: none !important;
     -webkit-appearance: none !important;
   }
+  input:focus {
+     outline: none !important;
+  }
 `;
 
 export default GlobalStyle;

@@ -36,19 +36,31 @@ const items = [
 	},
 ];
 
-function EventCarousel() {
+function EventCarousel({ images }) {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [animating, setAnimating] = useState(false);
 
 	const next = () => {
 		if (animating) return;
-		const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+		const nextIndex = images
+			? activeIndex === images.length - 1
+				? 0
+				: activeIndex + 1
+			: activeIndex === items.length - 1
+			? 0
+			: activeIndex + 1;
 		setActiveIndex(nextIndex);
 	};
 
 	const previous = () => {
 		if (animating) return;
-		const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+		const nextIndex = images
+			? activeIndex === 0
+				? images.length - 1
+				: activeIndex - 1
+			: activeIndex === 0
+			? items.length - 1
+			: activeIndex - 1;
 		setActiveIndex(nextIndex);
 	};
 
@@ -57,18 +69,14 @@ function EventCarousel() {
 		setActiveIndex(newIndex);
 	};
 
-	const slides = items.map(item => {
+	const slides = (images ? images : items).map((item, i) => {
 		return (
 			<CarouselItem
 				onExiting={() => setAnimating(true)}
 				onExited={() => setAnimating(false)}
-				key={item.src}
+				key={i}
 			>
-				<img src={item.src} alt={item.altText} />
-				<CarouselCaption
-					captionText={item.caption}
-					captionHeader={item.caption}
-				/>
+				<img src={`/static/${item}`} alt={'fly events'} />
 			</CarouselItem>
 		);
 	});
@@ -76,7 +84,7 @@ function EventCarousel() {
 	return (
 		<Carousel activeIndex={activeIndex} next={next} previous={previous}>
 			<CarouselIndicators
-				items={items}
+				items={images ? images : items}
 				activeIndex={activeIndex}
 				onClickHandler={goToIndex}
 			/>

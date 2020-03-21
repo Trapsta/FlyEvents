@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Badge } from 'reactstrap';
 import classnames from 'classnames';
 
-function EventComment({ reply }) {
+function EventComment({ reply, comment }) {
 	const CSS = {
 		EventComment: 'event-comment',
 		EventCommentReply: 'event-comment-reply',
@@ -30,13 +30,17 @@ function EventComment({ reply }) {
 			<div className={CSS.EventCommentHeader}>
 				<div className={CSS.EventCommentDetails}>
 					<div className={CSS.EventCommentName}>
-						@Karine_29 <Badge>Ticket Holder</Badge>{' '}
+						@{comment.name}{' '}
+						{comment.tickets_holder && (
+							<Badge color="success">Ticket Holder</Badge>
+						)}{' '}
+						{comment.organizer && <Badge color="dark">Organizer</Badge>}
 					</div>
-					<div className={CSS.EventCommentDate}>12 hours ago</div>
+					<div className={CSS.EventCommentDate}>{comment.date}</div>
 				</div>
 			</div>
 			<div className={CSS.EventCommentContent}>
-				Yaaaay! See you guys at the event. #SuperHyped
+				{comment.content}
 				<span className={CSS.EventCommentAction}>Reply</span>
 			</div>
 		</CommentWrapper>

@@ -43,6 +43,12 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = messages => {
+  // scroll window to top on location change
+
+  history.listen(_ => {
+    window.scrollTo(0, 0);
+  });
+
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>

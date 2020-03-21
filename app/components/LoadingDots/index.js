@@ -20,7 +20,7 @@ function LoadingDots({ isWhite, className, size = 'm' }) {
 		LoadingDot3: 'third-loading-dot',
 	};
 	return (
-		<styledLoadingDots
+		<StyledLoadingDots
 			className={classnames(CSS.LoadingDots, {
 				[CSS.LoadingDotsWhite]: isWhite,
 				[className]: className,
@@ -30,7 +30,7 @@ function LoadingDots({ isWhite, className, size = 'm' }) {
 			<span className={CSS.LoadingDot}>·</span>
 			<span className={`${CSS.LoadingDot} ${CSS.LoadingDot2}`}>·</span>
 			<span className={`${CSS.LoadingDot} ${CSS.LoadingDot3}`}>·</span>
-		</styledLoadingDots>
+		</StyledLoadingDots>
 	);
 }
 
@@ -38,7 +38,7 @@ LoadingDots.propTypes = {};
 
 export default LoadingDots;
 
-const styledLoadingDots = styled.div`
+const StyledLoadingDots = styled.div`
 	&.loading-dots {
 		text-align: center;
 		font-size: 50px;

@@ -6,6 +6,7 @@ const OfflinePlugin = require('offline-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
@@ -141,6 +142,7 @@ module.exports = require('./webpack.base.babel')({
       hashDigest: 'hex',
       hashDigestLength: 20,
     }),
+    new CopyWebpackPlugin([{ from: 'app/static', to: 'static' }]),
   ],
 
   performance: {

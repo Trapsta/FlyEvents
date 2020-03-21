@@ -22,8 +22,9 @@ import {
 import img from '../../images/icon-512x512.png';
 import StarRating from '../StarRating';
 import { ClockIcon, HeartOpen, HeartFilled } from '../Icons';
+import moment from 'moment';
 
-function EventCard() {
+function EventCard({ event }) {
 	const [inWishlist, setInWishlist] = useState(false);
 
 	const toggleWishlist = () => {
@@ -38,6 +39,9 @@ function EventCard() {
 		EventWishlist: 'event-wishlist',
 		EventActive: 'active',
 		EventDate: 'event-date',
+		FreeEvent: 'free-event',
+		EventVenue: 'event-venue',
+		EventLocation: 'event-location',
 	};
 	const Divider = () => <span className="divider">&bull;</span>;
 
@@ -45,7 +49,13 @@ function EventCard() {
 		<StyledEventCard>
 			<Card>
 				<div className={CSS.EventPrice}>
-					<Badge className="free-event">Kes. 2000</Badge>
+					<Badge
+						className={classnames({
+							[CSS.FreeEvent]: event.ticket_price === 0,
+						})}
+					>
+						{event.ticket_price === 0 ? 'FREE' : `Kes. ${event.ticket_price}`}
+					</Badge>
 				</div>
 				<div
 					className={classnames(CSS.EventWishlist, {
@@ -59,47 +69,54 @@ function EventCard() {
 						<HeartOpen height={30} width={30} />
 					)}
 				</div>
-				<CardImg top width="100%" src={img} alt="Card image cap" />
+				<CardImg
+					top
+					width="100%"
+					src={`/static/${event.images[0]}`}
+					alt="Card image cap"
+				/>
 
 				<CardBody>
 					<div className={CSS.EventDate}>
 						<div>
-							21
-							<span>Mar</span>
+							{moment(event.event_dates[0], 'DD-MM-YYYY').format('DD')}
+							<span>
+								{moment(event.event_dates[0], 'DD-MM-YYYY').format('MMM')}
+							</span>
 						</div>
 					</div>
-					<CardTitle>Nairobi Whiskey Festival</CardTitle>
+					<CardTitle>{event.name}</CardTitle>
 					<CardSubtitle>
-						Blue Door, Westlands <Divider /> 3 hours <Divider /> Social
+						<div className={CSS.EventVenue}>
+							{event.venue}, {event.location}
+						</div>
+						<Divider /> {event.duration} <Divider /> {event.category}
 					</CardSubtitle>
 					<div className={CSS.EventDetails}>
 						<CardSubtitle>
 							<StarRating
-								rating={4.5}
+								rating={event.rating}
 								height={21}
 								width={21}
-								reviewCount={61}
+								reviewCount={event.review_count}
 							/>
 
 							<span className={CSS.EventStart}>
 								<Divider />
-								<ClockIcon /> 6:00 PM
+								<ClockIcon /> {event.event_times[0]}
 							</span>
 						</CardSubtitle>
 					</div>
-					{false && (
-						<Link
-							className={CSS.CardLink}
-							to="/event/nairobi-whiskey-festival"
-						/>
-					)}
+					{<Link className={CSS.CardLink} to={`/events/${event.slug}`} />}
 				</CardBody>
 			</Card>
 		</StyledEventCard>
 	);
 }
 
-EventCard.propTypes = {};
+EventCard.propTypes = {
+	event: PropTypes.object,
+};
 
 export default EventCard;
 
@@ -189,6 +206,22 @@ const StyledEventCard = styled.div`
 	.card-title {
 		font-size: ${props => props.theme.fontSize.semibold};
 		font-weight: 500;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 2.5rem;
+	}
+	.card-subtitle {
+		font-size: 0.875rem;
+		.event-venue {
+			font-size: 0.875rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 50%;
+			display: inline-block;
+			transform: translateY(4px);
+		}
 	}
 	.divider {
 		margin: 0 0.5rem;
@@ -199,5 +232,33 @@ const StyledEventCard = styled.div`
 	.event-start-time {
 		display: inline-block;
 		transform: translateY(-4px);
+	}
+	.card-img-top {
+		/*height: 11vw;*/
+		object-fit: cover;
+	}
+	/* Small devices (landscape phones, 576px and up) */
+	@media (min-width: 576px) {
+		.card-img-top {
+			height: 19vw;
+		}
+	}
+	/* Medium devices (tablets, 768px and up) */
+	@media (min-width: 768px) {
+		.card-img-top {
+			height: 16vw;
+		}
+	}
+	/* Large devices (desktops, 992px and up) */
+	@media (min-width: 992px) {
+		.card-img-top {
+			height: 11vw;
+		}
+	}
+	/* Extra large devices (large desktops, 1200px and up) */
+	@media (min-width: 992px) {
+		.card-img-top {
+			height: 11vw;
+		}
 	}
 `;
