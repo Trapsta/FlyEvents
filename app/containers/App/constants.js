@@ -8,3 +8,7 @@
  * Follow this format:
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
+
+export const LOAD_EVENTS = 'flyevents/App/LOAD_EVENTS';
+export const LOAD_EVENTS_SUCCESS = 'flyevents/App/LOAD_EVENTS_SUCCESS';
+export const LOAD_EVENTS_ERROR = 'flyevents/App/LOAD_EVENTS_ERROR';

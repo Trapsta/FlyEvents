@@ -1,0 +1,791 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "Nairobi Whiskey Festival",
+      "slug": "nairobi-whiskey-festival",
+      "images": ["whiskey.png"],
+      "rating": 4.96,
+      "review_count": 158,
+      "venue": "Blue Door",
+      "location": "Westlands",
+      "ticket_price": 2000,
+      "created_date": "4 days ago",
+      "event_dates": ["21/03/2020"],
+      "event_times": ["6:00 pm", "11:00 pm"],
+      "duration": "3 hours",
+      "category": "social",
+      "organizer": "Jasper",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": [
+        "Cate_Fly",
+        "Karine_29",
+        "VodkaRanger",
+        "all_the_drinks",
+        "miss_smith"
+      ],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 2,
+      "name": "Miss Kajiado Pageant",
+      "slug": "miss-kajiado-pageant",
+      "images": ["miss.png"],
+      "rating": 3.96,
+      "review_count": 21,
+      "venue": "Great Wall Gardens",
+      "location": "Kajiado",
+      "ticket_price": 0,
+      "created_date": "1 days ago",
+      "event_dates": ["29/03/2020"],
+      "event_times": ["5:00 pm", "9:00 pm"],
+      "duration": "4 hours",
+      "category": "fashion",
+      "organizer": "Naomi",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": [
+        "Cate_Fly",
+        "Karine_29",
+        "VodkaRanger",
+        "all_the_drinks",
+        "miss_smith"
+      ],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 3,
+      "name": "Mombasa Grand Prix",
+      "slug": "mombasa-grand-prix",
+      "images": ["prix.png"],
+      "rating": 4.96,
+      "review_count": 121,
+      "venue": "Mnazi Circuit",
+      "location": "Diani",
+      "ticket_price": 0,
+      "created_date": "1 days ago",
+      "event_dates": ["01/04/2020"],
+      "event_times": ["3:00 pm", "5:00 pm"],
+      "duration": "2 hours",
+      "category": "sports",
+      "organizer": "Fernado",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["VodkaRanger", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 4,
+      "name": "Nakuru Property Bus Tour",
+      "slug": "nakuru-property-bus-tour",
+      "images": ["biz.png"],
+      "rating": 3.0,
+      "review_count": 11,
+      "venue": "Afraha Stadium",
+      "location": "Nakuru",
+      "ticket_price": 800,
+      "created_date": "6 days ago",
+      "event_dates": ["5/04/2020"],
+      "event_times": ["9:00 am", "2:00 pm"],
+      "duration": "5 hours",
+      "category": "business",
+      "organizer": "Jeff",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 5,
+      "name": "Westlands Real Estate Workshop",
+      "slug": "westlands-real-estate-workshop",
+      "images": ["west.png"],
+      "rating": 1.0,
+      "review_count": 6,
+      "venue": "Sarit Centre Expo",
+      "location": "Westlands",
+      "ticket_price": 0,
+      "created_date": "1 week ago",
+      "event_dates": ["15/04/2020"],
+      "event_times": ["9:00 am", "12:00 noon"],
+      "duration": "4 hours",
+      "category": "business",
+      "organizer": "Trump",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 6,
+      "name": "Amateur Astro Club",
+      "slug": "amateur-astro-club",
+      "images": ["astro.png"],
+      "rating": 5.0,
+      "review_count": 600,
+      "venue": "Karen Waterfront",
+      "location": "Karen",
+      "ticket_price": 500,
+      "created_date": "1 week ago",
+      "event_dates": ["22/04/2020"],
+      "event_times": ["9:00 am", "12:00 noon"],
+      "duration": "4 hours",
+      "category": "business",
+      "organizer": "Trump",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 7,
+      "name": "Meru BBI Rally",
+      "slug": "meru-bbi-rally",
+      "images": ["bbi.png"],
+      "rating": 1.0,
+      "review_count": 10,
+      "venue": "Kinoru Stadium",
+      "location": "Meru",
+      "ticket_price": 0,
+      "created_date": "2 week ago",
+      "event_dates": ["27/04/2020"],
+      "event_times": ["3:00 pm", "5:00 pm"],
+      "duration": "2 hours",
+      "category": "politics",
+      "organizer": "Raila",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 8,
+      "name": "Nairobi Comic Con",
+      "slug": "nairobi-comic-con",
+      "images": ["comic.png"],
+      "rating": 4.5,
+      "review_count": 46,
+      "venue": "B Club",
+      "location": "Kilimani",
+      "ticket_price": 5000,
+      "created_date": "2 weeks ago",
+      "event_dates": ["01/05/2020"],
+      "event_times": ["9:00 am", "6:00 pm"],
+      "duration": "10 hours",
+      "category": "gaming",
+      "organizer": "susan",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    },
+    {
+      "id": 9,
+      "name": "Khalid Live Party",
+      "slug": "khalid-live-party",
+      "images": ["khalid.png"],
+      "rating": 5.0,
+      "review_count": 210,
+      "venue": "Carnivore",
+      "location": "Langata",
+      "ticket_price": 3000,
+      "created_date": "3 week ago",
+      "event_dates": ["01/05/2020"],
+      "event_times": ["9:00 pm", "12:00 midnight"],
+      "duration": "6 hours",
+      "category": "concert",
+      "organizer": "Jayz",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Karine_29",
+          "tickets_holder": true,
+          "date": "12 hours ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Yaaaay! See you guys at the event. #SuperHyped"
+        },
+        {
+          "id": 2,
+          "name": "EventsMonster",
+          "tickets_holder": false,
+          "date": "2 hours ago",
+          "reply": true,
+          "reply_to": 1,
+          "organizer": false,
+          "content": "@Karine_29, which tickets do you have? Thinking of picking the VIP Cellar tickets"
+        },
+        {
+          "id": 3,
+          "name": "Rene_M",
+          "tickets_holder": false,
+          "date": "1 day ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Does anyone know if Conor is coming to the event, That would be fantastic!"
+        },
+        {
+          "id": 4,
+          "name": "Jasper",
+          "tickets_holder": false,
+          "date": "21 hours ago",
+          "reply": true,
+          "organizer": true,
+          "content": "@Rene_M , Mr McGregor has confirmed that he will be at the event to promote his new Proper 12 Whiskey brand. Get you tickets now!"
+        },
+        {
+          "id": 5,
+          "name": "WhiskeyConnoisseur",
+          "tickets_holder": false,
+          "date": "2 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Ohh sweet whiskey! Here I come "
+        },
+        {
+          "id": 1,
+          "name": "Cate_Fly",
+          "tickets_holder": true,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "Am gonna have me some Jamesons"
+        },
+        {
+          "id": 1,
+          "name": "CoolBro",
+          "tickets_holder": false,
+          "date": "3 days ago",
+          "reply": false,
+          "organizer": false,
+          "content": "I really want to attend this event but too bad I will be out of town"
+        }
+      ],
+      "attending": ["Cate_Fly", "all_the_drinks", "miss_smith"],
+      "location_map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8520745657684!2d36.802039415351636!3d-1.260995799080261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1727db51ee2d%3A0xc9ef73d9acf52026!2sBlue%20Door%20Restaurant!5e0!3m2!1sen!2ske!4v1584236440647!5m2!1sen!2ske",
+      "about": "® is East Africa’s largest whiskey show. Open to everyone who has an interest in all whiskey, rum and vodka, this is your one time opportunity to purchase all of your whsikey, vodka and rum supplies directly from the manufacturers and vendors!\n\n\n\n\n\nOur mission is to make whiskey cool again and bring some of the Irish vibe into the whiskey community. We have revolutionized the same old convention with a fresh, fun, and innovative expo! Priding ourselves as the trendsetters of the beverages expo world, we are eager to make this a valuable and unforgettable experience for our vendors, sponsors, instructors and attendees alike. We welcome you to join us at Blue Door in Westlands!\n\n\n\n\n\nThe Whiskey Festival will be held on 21st March, 2020. Gates will be open starting 6: 00pm.\n\n\n\n\n\nSpend the day enjoying classes, vendor hall shopping, cake competitions, demos, and so much more. Please mark your calendars and plan your whiskey adventure.\n\n\n\n\n\nFor more information call +254 715 849 520"
+    }
+  ]
+}
