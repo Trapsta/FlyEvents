@@ -4,7 +4,7 @@
   "description": "Fly Events - events management system",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "https://github.com/Trapsta/FlyEvents.git"
   },
   "engines": {
     "npm": ">=5",
